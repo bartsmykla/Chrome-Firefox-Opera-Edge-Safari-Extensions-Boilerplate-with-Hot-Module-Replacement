@@ -1,4 +1,6 @@
 language: node_js
 sudo: false
+addons:
+  srcclr: true
 after_success:
   - bash <(curl -s https://codecov.io/bash)

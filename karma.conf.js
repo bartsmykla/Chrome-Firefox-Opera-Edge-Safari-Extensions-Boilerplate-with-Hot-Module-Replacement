@@ -1,7 +1,7 @@
 const helpers = require('./config/helpers');
 const { root } = helpers;
 
-process.env.PHANTOMJS_BIN = './node_modules/.bin/phantomjs';
+require('phantomjs-prebuilt').path = './node_modules/.bin/phantomjs';
 
 module.exports = function(config) {
   config.set({
