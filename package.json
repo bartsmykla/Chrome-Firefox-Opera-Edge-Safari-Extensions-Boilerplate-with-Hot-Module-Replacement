@@ -69,6 +69,7 @@
     "nightwatch": "^0.9.12",
     "npm-run-all": "^4.0.0",
     "nyc": "^10.0.0",
+    "phantomjs": "^2.1.7",
     "plist": "^2.0.1",
     "precommit-hook-eslint": "^3.0.0",
     "react-hot-loader": "3.0.0-beta.6",
@@ -92,6 +93,7 @@
     "start": "node_modules/.bin/cross-env NODE_ENV=development node_modules/.bin/npm-run-all webpack:dll:gen start:dev",
     "start:dev": "node scripts/hot-reload.js",
     "webpack": "node_modules/webpack/bin/webpack.js",
+    "webpack:dll:gen": "./node_modules/.bin/webpack --config config/webpack/dll.webpack.js",
     "build": "webpack",
     "build:all": "node_modules/.bin/cross-env NODE_ENV=production TWIST_BROWSER_BUILD=all node_modules/.bin/npm-run-all webpack",
     "build:chrome": "node_modules/.bin/cross-env NODE_ENV=production TWIST_BROWSER_BUILD=chrome node_modules/.bin/npm-run-all webpack",
@@ -115,7 +117,6 @@
     "e2e": "yarn run e2e:run",
     "docs:gen": "node_modules/.bin/esdoc -c config/esdoc.json",
     "docs": "node_modules/.bin/npm-run-all clean:docs docs:gen",
-    "lint": "./node_modules/.bin/eslint -c .eslintrc .",
-    "webpack:dll:gen": "./node_modules/.bin/webpack --config config/webpack/dll.webpack.js"
+    "lint": "./node_modules/.bin/eslint -c .eslintrc ."
   }
 }
