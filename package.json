@@ -1,6 +1,7 @@
 {
   "name": "chrome-firefox-opera-edge-safari-extensions-boilerplate--with-hot-reload",
   "version": "0.0.1",
+  "description": "chrome",
   "main": "index.js",
   "license": "MIT",
   "pre-commit": [

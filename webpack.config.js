@@ -1,6 +1,6 @@
 const BROWSER = (!process.env.TWIST_BROWSER_BUILD)
   ? 'chrome'
-  : process.env.TWIST_BROWSER_BUILD.toLowerCase();
+  : process.env.TWIST_BROWSER_BUILD;
 
 let ENV = '';
 
@@ -30,7 +30,7 @@ switch (process.env.NODE_ENV) {
 }
 
 if (BROWSER === 'all') {
-  module.exports = require('./config/webpack/allbrowsers.webpack.js');
+  module.exports = require('./config/webpack/browsers/allbrowsers.webpack.js');
 } else {
-  module.exports = require(`./config/webpack/${BROWSER}.webpack.js`)({ env: ENV, browser: BROWSER });
+  module.exports = require(`./config/webpack/browsers/${BROWSER}.webpack.js`)({ env: ENV, browser: BROWSER });
 }

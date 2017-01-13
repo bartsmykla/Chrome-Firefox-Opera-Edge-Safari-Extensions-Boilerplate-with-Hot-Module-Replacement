@@ -22,7 +22,7 @@
   "content_scripts": [
     {
       "matches": ["https://mail.google.com/*"],
-      "js": ["injector.js", "sidebar/sidebar.js"],
+      "js": ["common.js", "vendor.js", "sidebar/sidebar.js"],
       "run_at": "document_end"
     }
   ],
@@ -40,14 +40,7 @@
     "*.png",
     "*.jpg",
     "*.gif",
-    "*.svg",
-    "commons.js",
-    "vendors.js",
-    "*.json",
-    "*.js"
+    "*.svg"
   ],
-  "externally_connectable": {
-    "matches": ["https://mail.google.com/*"]
-  },
-  "content_security_policy": "script-src 'self' http://localhost:3000 https://localhost:3000 'unsafe-eval'; object-src 'self'"
+  "content_security_policy": "script-src 'self' https://www.googleadservices.com/; object-src 'self'"
 }

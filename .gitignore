@@ -190,4 +190,4 @@ build
 dist
 documentation
 releases
-config/key.pem
+key.pem

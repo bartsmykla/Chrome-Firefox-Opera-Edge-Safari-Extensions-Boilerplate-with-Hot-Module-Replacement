@@ -1,55 +1,52 @@
 const webpack = require('webpack');
 const helpers = require('../helpers');
 const defaults = require('../defaults');
+
+// Webpack plugins
 const CleanPlugin = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const HappyPack = require('happypack');
-const { root, removeEmpty, ifProd, ifDev } = helpers;
 
 module.exports = (options) => {
-  const ENV = process.env.ENV = process.env.NODE_ENV = options.env;
-  const manifestMode = (ENV.toLowerCase() === 'development') ? ENV.toLowerCase() : 'production';
+  const ENV = options.env;
   const BROWSER = options.browser;
 
   const buildPath = ENV === 'development' ? 'dist' : `build/${BROWSER}`;
 
   const config = {
+    devtool: 'source-map',
     resolve: {
-      extensions: ['.jsx', '.js'],
-      modules: [defaults.SRC_DIR, 'node_modules'],
+      extensions: [ '.jsx', '.js' ],
+      modules: [ defaults.SRC_DIR, 'node_modules' ],
       alias: {
-        react: root('./node_modules/react'),
-        React: root('./node_modules/react')
+        react: helpers.root('./node_modules/react'),
+        React: helpers.root('./node_modules/react'),
       }
     },
     context: defaults.SRC_DIR,
     entry: {
       'sidebar/sidebar': [
-        './extension/sidebar/index.jsx'
+        './extension/sidebar/index.jsx',
       ],
       'background/background': [
-        './extension/background/background.js'
+        './extension/background/background.js',
       ],
       'popup/popup': [
-        './extension/popup/index.jsx'
+        './extension/popup/index.jsx',
       ],
-      'injector': [
-        './extension/injector.js'
-      ]
-      // vendor: [
-      // ]
+      vendor: ['react', 'react-dom', 'redux', 'react-redux'],
     },
     output: {
-      path: root(buildPath),
-      publicPath: ENV === 'development' ? 'https://localhost:3000/' : 'build/' + BROWSER,
+      path: helpers.root(buildPath),
+      publicPath: (ENV === 'development') ? 'https://localhost:3000/' : '/',
       filename: '[name].js',
     },
     module: {
       rules: [
         {
           test: /.jsx?$/,
-          include: [defaults.SRC_DIR],
+          include: [ defaults.SRC_DIR ],
           loader: (ENV === 'development') ? 'happypack/loader?id=1' : 'babel-loader',
           query: {
             cacheDirectory: true
@@ -60,30 +57,29 @@ module.exports = (options) => {
     performance: {
       hints: false,
     },
-    plugins: removeEmpty([
+    plugins: helpers.removeEmpty([
       new webpack.DefinePlugin({
-        ENV: JSON.stringify(ENV),
         'process.env.NODE_ENV': JSON.stringify(ENV),
       }),
       new CleanPlugin([buildPath], {
-        root: root(),
+        root: helpers.root(),
         verbose: true,
       }),
-      new CopyPlugin(removeEmpty([
+      new CopyPlugin(helpers.removeEmpty([
         { from: 'extension/icons', to: 'icons' },
       ])),
       new HtmlPlugin({
         filename: 'popup/popup.html',
-        chunks: ['popup/popup'],
+        chunks: [ 'vendor', 'common', 'popup/popup' ],
         template: 'extension/popup/popup.html'
       }),
       new HtmlPlugin({
         filename: 'background/background.html',
-        chunks: ['background/background'],
+        chunks: [ 'vendor', 'common', 'background/background' ],
         inject: 'head',
         title: 'Background'
       }),
-      ifDev(new HappyPack({
+      helpers.ifDev(new HappyPack({
         id: '1',
         threads: 6,
         loaders: ['babel-loader'],
@@ -91,15 +87,19 @@ module.exports = (options) => {
         verbose: true,
         debug: true,
       })),
-      ifProd(new webpack.LoaderOptionsPlugin({
+      helpers.ifProd(new webpack.optimize.CommonsChunkPlugin({
+        name: 'common',
+      })),
+      helpers.ifProd(new webpack.LoaderOptionsPlugin({
         minimize: true,
         debug: false,
       })),
-      ifProd(new webpack.optimize.UglifyJsPlugin({
+      helpers.ifProd(new webpack.optimize.UglifyJsPlugin({
         compress: {
           screw_ie8: true,
           warnings: false,
-        }
+        },
+        sourceMap: true,
       })),
     ]),
   };

@@ -26,6 +26,11 @@ const buildPath = (env === 'development') ? 'dist' : `build/${browser}`;
 
 const ifProd = doWhenIsEnv.bind(null, 'production');
 const ifDev = doWhenIsEnv.bind(null, 'development');
+const ifRelease = plugin => {
+    if (process.env.__RELEASE__) {
+      return plugin;
+    }
+}
 
 const removeEmpty = array => array.filter(item => !!item);
 
@@ -35,16 +40,20 @@ const flatten = (obj) => {
   const output = {};
   Object.keys(obj).forEach(key => Object.assign(output, obj[key]));
   return output;
-}
+};
+
+const packageJson = require(root('package.json'));
 
 module.exports = {
   root,
   ifProd,
   ifDev,
+  ifRelease,
   removeEmpty,
   version,
   flatten,
   env,
   buildPath,
   pathJoin,
+  packageJson,
 };
