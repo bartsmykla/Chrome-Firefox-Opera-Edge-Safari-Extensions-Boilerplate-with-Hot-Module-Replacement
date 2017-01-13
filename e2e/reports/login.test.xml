@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="1">
+
+  <testsuite name="login.test"
+    errors="1" failures="0" hostname="" id="" package="login.test" skipped="0"
+    tests="1" time="0.02500" timestamp="Tue, 10 Jan 2017 16:57:03 GMT">
+  
+    <testcase name="User Logs in" time="0.02500" assertions="0">
+    </testcase>
+      <system-err>
+          Error while running [Login Test / User Logs in]:
+
+  TypeError: client.url(...).waitForElementVisible(...).assert.title(...).assert.visible(...).setValue(...).waitForElementVisible(...).click(...).waitForElementVisible(...).setValue(...).click(...).pause(...).expect.element(...).to.be.visible.end is not a function
+    at Object.UserLogsIn [as User Logs in] (/Users/bartlomiejsmykla/Projects/webpack-demo/e2e/tests/login.test.js:16:6)
+    at Module.call (/Users/bartlomiejsmykla/Projects/webpack-demo/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/bartlomiejsmykla/Projects/webpack-demo/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/bartlomiejsmykla/Projects/webpack-demo/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/bartlomiejsmykla/Projects/webpack-demo/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/bartlomiejsmykla/Projects/webpack-demo/node_modules/q/q.js:796:13)
+    at /Users/bartlomiejsmykla/Projects/webpack-demo/node_modules/q/q.js:556:49
+    at runSingle (/Users/bartlomiejsmykla/Projects/webpack-demo/node_modules/q/q.js:137:13)
+    at flush (/Users/bartlomiejsmykla/Projects/webpack-demo/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:67:7)
+      </system-err>
+  
+  
+  </testsuite>
+</testsuites>

@@ -1,0 +1,34 @@
+verbose: false
+instrumentation:
+    root: ./src
+    extensions:
+        - .js
+        - .jsx
+    default-excludes: true
+    excludes: ['hydro.conf.js', 'lib/cli']
+    embed-source: false
+    variable: __coverage__
+    compact: false
+    preserve-comments: false
+    complete-copy: false
+    save-baseline: true
+    include-all-sources: true
+reporting:
+    print: none
+    reports: none
+    dir: ./coverage
+    watermarks:
+        statements: [50, 80]
+        lines: [50, 80]
+        functions: [50, 80]
+        branches: [50, 80]
+    report-config:
+        clover: {file: clover.xml}
+        cobertura: {file: cobertura-coverage.xml}
+        json: {file: coverage-final.json}
+        json-summary: {file: coverage-summary.json}
+        lcovonly: {file: lcov.info}
+        teamcity: {file: null}
+        text: {file: null, maxCols: 0}
+        text-lcov: {file: lcov.info}
+        text-summary: {file: null}

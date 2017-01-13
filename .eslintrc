@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb-flow"
+  ],
+  "plugins": [
+    "react",
+    "jsx-a11y",
+    "import",
+    "immutable",
+    "flowtype"
+  ],
+  "rules": {
+    "flowtype/require-parameter-type": 2
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+    "webextensions": true,
+  }
+}

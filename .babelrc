@@ -1,0 +1,21 @@
+{
+  "env": {
+    "test": {
+      "plugins": [
+        "transform-flow-strip-types",
+        ["istanbul", { "exclude": ["**/*.spec.js", "*.js"]}]
+      ],
+      "presets": [
+        "es2015",
+        "stage-2",
+        "react",
+      ]
+    }
+  },
+  "plugins": ["react-hot-loader/babel", "transform-flow-strip-types"],
+  "presets": [
+    ["es2015", { "modules": false }],
+    "stage-2",
+    "react",
+  ]
+}

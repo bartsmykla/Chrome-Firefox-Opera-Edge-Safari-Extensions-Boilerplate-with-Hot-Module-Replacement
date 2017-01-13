@@ -1,0 +1,53 @@
+{
+  "manifest_version": 2,
+  "name": "Twist for Gmail",
+  "description": "Lightweight productivity suite for Gmail. The fastest way to organize your professional life.",
+  "version": "1.0.0",
+  "default_locale": "pl",
+  "minimum_chrome_version": "29",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "persistent": true,
+    "page": "background/background.html"
+  },
+  "browser_action": {
+    "default_icon": "icons/icon16.png",
+    "default_title": "FollowUp on this page",
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["injector.js", "sidebar/sidebar.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "management",
+    "notifications",
+    "contextMenus",
+    "tabs",
+    "activeTab",
+    "webRequest",
+    "webRequestBlocking",
+    "*://*/*"
+  ],
+  "web_accessible_resources": [
+    "*.png",
+    "*.jpg",
+    "*.gif",
+    "*.svg",
+    "commons.js",
+    "vendors.js",
+    "*.json",
+    "*.js"
+  ],
+  "externally_connectable": {
+    "matches": ["https://mail.google.com/*"]
+  },
+  "content_security_policy": "script-src 'self' http://localhost:3000 https://localhost:3000 'unsafe-eval'; object-src 'self'"
+}

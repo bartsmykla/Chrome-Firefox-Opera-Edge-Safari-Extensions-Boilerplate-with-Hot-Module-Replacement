@@ -1,0 +1,29 @@
+{
+  "source": "./src",
+  "package": "./package.json",
+  "destination": "./documentation",
+	"includes": ["\\.(js|jsx)$"],
+  "excludes": ["\\.spec\\.js$"],
+	"unexportIdentifier": true,
+	"undocumentIdentifier": true,
+  "coverage": true,
+  "lint": true,
+  "test": {
+    "type": "mocha",
+    "includes": [ "\\.spec\\.js$"],
+    "source": "./src"
+  },
+  "plugins": [
+    { "name": "esdoc-flow-plugin" }
+  ],
+  "experimentalProposal": {
+    "classProperties": true,
+    "objectRestSpread": true,
+    "decorators": true,
+    "doExpressions": true,
+    "functionBind": true,
+    "asyncGenerators": true,
+    "exportExtensions": true,
+    "dynamicImport": true
+  }
+}
