@@ -8,6 +8,7 @@
     "lint"
   ],
   "devDependencies": {
+    "add-asset-html-webpack-plugin": "^1.0.2",
     "archiver": "^1.3.0",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
@@ -88,7 +89,8 @@
     "react-dom": "^15.4.1"
   },
   "scripts": {
-    "start": "node_modules/.bin/cross-env NODE_ENV=development node scripts/hot-reload.js",
+    "start": "node_modules/.bin/cross-env NODE_ENV=development node_modules/.bin/npm-run-all webpack:dll:gen start:dev",
+    "start:dev": "node scripts/hot-reload.js",
     "webpack": "node_modules/webpack/bin/webpack.js",
     "build": "webpack",
     "build:all": "node_modules/.bin/cross-env NODE_ENV=production TWIST_BROWSER_BUILD=all node_modules/.bin/npm-run-all webpack",
@@ -100,7 +102,6 @@
     "clean:build": "node_modules/rimraf/bin.js build",
     "clean:coverage": "node_modules/rimraf/bin.js coverage",
     "clean:docs": "node_modules/rimraf/bin.js documentation",
-    "copy": "node scripts/copy",
     "test:mocha": "node_modules/.bin/_mocha --opts config/mocha.conf",
     "coverage:_save": "node_modules/.bin/cross-env NODE_ENV=test node_modules/.bin/nyc --reporter=html node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/mocha/bin/_mocha -- --opts config/mocha.conf",
     "coverage:gen": "node_modules/.bin/npm-run-all clean:coverage coverage:_save",
@@ -114,6 +115,7 @@
     "e2e": "yarn run e2e:run",
     "docs:gen": "node_modules/.bin/esdoc -c config/esdoc.json",
     "docs": "node_modules/.bin/npm-run-all clean:docs docs:gen",
-    "lint": "./node_modules/.bin/eslint -c .eslintrc ."
+    "lint": "./node_modules/.bin/eslint -c .eslintrc .",
+    "webpack:dll:gen": "./node_modules/.bin/webpack --config config/webpack/dll.webpack.js"
   }
 }

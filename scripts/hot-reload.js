@@ -3,6 +3,7 @@ const WebpackDevServer = require('webpack-dev-server');
 const GenerateJsonPlugin = require('generate-json-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const WriteFilePlugin = require('write-file-webpack-plugin');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const webpack = require('webpack');
 const config = require('../webpack.config');
 const helpers = require('../config/helpers');
@@ -17,7 +18,7 @@ console.log('Starting WebpackDevServer debug');
 config.cache = true;
 config.devtool = 'eval';
 config.entry.injector = [
-  './extension/injector.js'
+  '../scripts/injector.js'
 ];
 delete config.entry.vendor;
 
@@ -32,7 +33,7 @@ config.plugins = config.plugins.map(plugin => {
       "*.json",
       "*.js",
     ]);
-    plugin.value.content_scripts[0].js = ["injector.js"];
+    plugin.value.content_scripts[0].js = [ "dll__vendor.js", "injector.js" ];
   } else if (plugin instanceof HtmlPlugin) {
     plugin.options.chunks = plugin.options.chunks.filter(chunk => ['common', 'vendor'].indexOf(chunk) === -1);
   }
@@ -58,6 +59,11 @@ config.plugins = [
     debug: true,
     minimize: false
   }),
+  new webpack.DllReferencePlugin({
+    context: '.',
+    manifest: require(helpers.root('config/webpack/dlls/vendor.json')),
+  }),
+  new AddAssetHtmlPlugin({ filepath: require.resolve(helpers.root('config/webpack/dlls/dll__vendor.js')), includeSourcemap: false }),
 ].concat(config.plugins || []);
 
 Object.keys(config.entry).forEach(entryName => {
@@ -80,10 +86,10 @@ try {
     https: true,
     contentBase: helpers.root('dist'),
     historyApiFallback: true,
-    noInfo: true,
+    // noInfo: true,
     hot: true,
     inline: true,
-    stats: { colors: true, assets: false },
+    stats: { colors: true, assets: true },
     headers: { "Access-Control-Allow-Origin": "*" },
     clientLogLevel: "info",
     proxy: {
