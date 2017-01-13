@@ -2225,6 +2225,16 @@ core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
 
+coveralls@~2.11.2:
+  version "2.11.15"
+  resolved "https://registry.yarnpkg.com/coveralls/-/coveralls-2.11.15.tgz#37d3474369d66c14f33fa73a9d25cee6e099fca0"
+  dependencies:
+    js-yaml "3.6.1"
+    lcov-parse "0.0.10"
+    log-driver "1.2.5"
+    minimist "1.2.0"
+    request "2.75.0"
+
 crc32-stream@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/crc32-stream/-/crc32-stream-1.0.0.tgz#ea155e5e1d738ed3778438ffe92ffe2a141aeb3f"
@@ -4043,7 +4053,7 @@ glob@3.2.3:
     inherits "2"
     minimatch "~0.2.11"
 
-glob@5.0.15, glob@5.x, glob@^5.0.1, glob@^5.0.15, glob@^5.0.5:
+glob@5.0.15, glob@5.x, glob@^5.0.1, glob@^5.0.15, glob@^5.0.5, glob@~5.0.0:
   version "5.0.15"
   resolved "https://registry.yarnpkg.com/glob/-/glob-5.0.15.tgz#1bc936b9e02f4a603fcc222ecf7633d30b8b93b1"
   dependencies:
@@ -4936,16 +4946,16 @@ js-tokens@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-2.0.0.tgz#79903f5563ee778cc1162e6dcf1a0027c97f9cb5"
 
-js-yaml@3.x, js-yaml@^3.5.1, js-yaml@^3.7.0:
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.7.0.tgz#5c967ddd837a9bfdca5f2de84253abe8a1c03b80"
+js-yaml@3.6.1, js-yaml@~3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.6.1.tgz#6e5fe67d8b205ce4d22fad05b7781e8dadcc4b30"
   dependencies:
     argparse "^1.0.7"
     esprima "^2.6.0"
 
-js-yaml@~3.6.1:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.6.1.tgz#6e5fe67d8b205ce4d22fad05b7781e8dadcc4b30"
+js-yaml@3.x, js-yaml@^3.5.1, js-yaml@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.7.0.tgz#5c967ddd837a9bfdca5f2de84253abe8a1c03b80"
   dependencies:
     argparse "^1.0.7"
     esprima "^2.6.0"
@@ -5132,6 +5142,13 @@ karma-coverage@^1.1.1:
     minimatch "^3.0.0"
     source-map "^0.5.1"
 
+karma-coveralls@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/karma-coveralls/-/karma-coveralls-1.1.2.tgz#6f960ee738793b087ba99284a854ef6be4d32ae0"
+  dependencies:
+    coveralls "~2.11.2"
+    glob "~5.0.0"
+
 karma-es6-shim@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/karma-es6-shim/-/karma-es6-shim-1.0.0.tgz#aaeb530862bcf79340ebd588f4f9e57de842b479"
@@ -5266,6 +5283,10 @@ lcid@^1.0.0:
   resolved "https://registry.yarnpkg.com/lcid/-/lcid-1.0.0.tgz#308accafa0bc483a3867b4b6f2b9506251d1b835"
   dependencies:
     invert-kv "^1.0.0"
+
+lcov-parse@0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/lcov-parse/-/lcov-parse-0.0.10.tgz#1b0b8ff9ac9c7889250582b70b71315d9da6d9a3"
 
 levn@^0.3.0, levn@~0.3.0:
   version "0.3.0"
@@ -5577,6 +5598,10 @@ lodash@3.3.0:
 lodash@^4.0.0, lodash@^4.0.1, lodash@^4.1.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.5.0, lodash@^4.5.1, lodash@^4.6.1, lodash@^4.8.0, lodash@~4.17.2:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+
+log-driver@1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/log-driver/-/log-driver-1.2.5.tgz#7ae4ec257302fd790d557cb10c97100d857b0056"
 
 log4js@^0.6.31:
   version "0.6.38"

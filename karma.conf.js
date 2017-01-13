@@ -58,7 +58,7 @@ module.exports = function(config) {
         publicPath: false
       }
     },
-    reporters: ['mocha', 'coverage'],
+    reporters: [ 'mocha', 'coverage', 'coveralls' ],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
