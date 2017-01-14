@@ -7,9 +7,12 @@
 # Chrome, Firefox, Opera, Edge and Safari Extensions Boilerplate with Hot Module Replacement
 Boilerplate code to Browser Extensions (Chrome, Firefox, Opera, Edge, Safari) with Hot Module Replacement (webpack) and React + Redux
 
+My reasons why I created this boilerplate code was to prepare reusable code for writing browser extensions, not only for Chrome, but Firefox, Opera, Edge, Safari too. I couldn't find anything which was working with **React** and **Hot Module Replacement** IN **content_scripts** (yes, it's working).
+
 ### TODO
 
 - [ ] Chai assertions (should) in Nightwatch's e2e tests;
 - [ ] Add Cucumber's Gherkin features, and something to generate documentations from it (I really like BDD);
 - [ ] Prepare good README file ;-);
 - [ ] Improve solution for auto technical documentation generation (right now it's esdoc, but it's not working well with stateless React components). Try to fight with react-docgen maybe?);
+- [ ] Improve code coverage to being included files which have no specs written for them;
