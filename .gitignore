@@ -193,3 +193,4 @@ releases
 key.pem
 config/webpack/dlls
 e2e/reports
+temp
