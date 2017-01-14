@@ -1,5 +1,4 @@
 const helpers = require('./config/helpers');
-const { root } = helpers;
 
 require('phantomjs-prebuilt').path = './node_modules/.bin/phantomjs';
 
@@ -15,10 +14,10 @@ module.exports = function(config) {
     webpack: {
       resolve: {
         extensions: ['.jsx', '.js'],
-        modules: [root('src'), 'node_modules'],
+        modules: [helpers.root('src'), 'node_modules'],
         alias: {
-          react: root('./node_modules/react'),
-          React: root('./node_modules/react')
+          react: helpers.root('./node_modules/react'),
+          React: helpers.root('./node_modules/react')
         }
       },
       module: {
