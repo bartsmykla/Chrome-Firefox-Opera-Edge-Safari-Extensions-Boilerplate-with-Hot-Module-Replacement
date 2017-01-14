@@ -16,3 +16,4 @@ My reasons why I created this boilerplate code was to prepare reusable code for 
 - [ ] Prepare good README file ;-);
 - [ ] Improve solution for auto technical documentation generation (right now it's esdoc, but it's not working well with stateless React components). Try to fight with react-docgen maybe?);
 - [ ] Improve code coverage to being included files which have no specs written for them;
+- [ ] Add some automatic style guide generator for React components;
