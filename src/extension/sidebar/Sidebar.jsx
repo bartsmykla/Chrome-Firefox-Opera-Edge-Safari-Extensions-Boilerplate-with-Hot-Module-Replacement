@@ -2,14 +2,13 @@ import React from 'react';
 
 /* istanbul ignore next */
 
-/**
- * Sidebar component
- * @class Sidebar
- * @return {ReactElement}
- */
-const Sidebar = () => (
+type Props = {
+  onClick: () => void
+}
+
+const Sidebar = (props:Props) => (
   <div>
-    <a id="Sidebar">Sidebar</a>
+    <a href="" id="Sidebar" onClick={props.onClick}>Sidebar</a>
   </div>
 );
 
