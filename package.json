@@ -45,6 +45,7 @@
     "flow-bin": "^0.37.4",
     "fs-jetpack": "^0.10.5",
     "generate-json-webpack-plugin": "^0.2.1",
+    "generate-plist-webpack-plugin": "^0.0.2",
     "happypack": "^3.0.2",
     "html-webpack-plugin": "^2.26.0",
     "istanbul": "1.1.0-alpha.1",
