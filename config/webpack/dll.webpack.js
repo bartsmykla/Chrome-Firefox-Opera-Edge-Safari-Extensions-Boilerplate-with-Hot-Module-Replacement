@@ -2,10 +2,11 @@ const webpack = require('webpack');
 const helpers = require('../helpers');
 const defaults = require('../defaults');
 
-const { root, env, browser } = helpers;
+// Webpack plugins
+const CleanPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  devtool: env === 'production' ? null : 'inline-source-map',
+  devtool: helpers.env === 'production' ? null : 'inline-source-map',
   output: {
     path: helpers.root('config/webpack/dlls'),
     filename: 'dll__[name].js',
@@ -26,13 +27,17 @@ module.exports = {
   },
   context: defaults.SRC_DIR,
   plugins: [
+    new CleanPlugin(['dlls'], {
+      root: helpers.root('congif/webpack'),
+      verbose: true,
+    }),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(env),
+      'process.env.NODE_ENV': JSON.stringify(helpers.env),
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     // new webpack.optimize.UglifyJsPlugin(),
     new webpack.DllPlugin({
-      path: root('config/webpack/dlls/[name].json'),
+      path: helpers.root('config/webpack/dlls/[name].json'),
       name: 'DLL_[name]'
     })
   ]
