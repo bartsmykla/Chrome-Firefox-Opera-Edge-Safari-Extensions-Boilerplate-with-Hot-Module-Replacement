@@ -9,7 +9,7 @@ import React from 'react';
  */
 const Sidebar = () => (
   <div>
-    <a id="basia">test1</a>
+    <a id="Sidebar">Sidebar</a>
   </div>
 );
 

@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "Twist for Gmail",
-  "description": "Lightweight productivity suite for Gmail. The fastest way to organize your professional life.",
+  "name": "Some Funky Extension",
+  "description": "Some nice Funky Extension",
   "version": "1.0.0",
-  "default_locale": "pl",
+  "default_locale": "en",
   "minimum_chrome_version": "29",
   "icons": {
     "16": "icons/icon16.png",
@@ -16,7 +16,7 @@
   },
   "browser_action": {
     "default_icon": "icons/icon16.png",
-    "default_title": "FollowUp on this page",
+    "default_title": "Some nice Funky Extension",
     "default_popup": "popup/popup.html"
   },
   "content_scripts": [
