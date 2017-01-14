@@ -1,6 +1,6 @@
-const BROWSER = (!process.env.TWIST_BROWSER_BUILD)
+const BROWSER = (!process.env.__BROWSER__)
   ? 'chrome'
-  : process.env.TWIST_BROWSER_BUILD;
+  : process.env.__BROWSER__;
 
 let ENV = '';
 

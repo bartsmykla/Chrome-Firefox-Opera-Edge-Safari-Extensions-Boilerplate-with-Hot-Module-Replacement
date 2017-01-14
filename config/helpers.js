@@ -20,7 +20,7 @@ const doWhenIsEnv = (env, plugin) => {
 }
 
 const env = (process.env.NODE_ENV) ? process.env.NODE_ENV.toLowerCase() : 'development';
-const browser = (process.env.TWIST_BROWSER_BUILD) ? process.env.TWIST_BROWSER_BUILD.toLowerCase() : 'chrome';
+const browser = (process.env.__BROWSER__) ? process.env.__BROWSER__.toLowerCase() : 'chrome';
 
 const buildPath = (env === 'development') ? 'dist' : `build/${browser}`;
 

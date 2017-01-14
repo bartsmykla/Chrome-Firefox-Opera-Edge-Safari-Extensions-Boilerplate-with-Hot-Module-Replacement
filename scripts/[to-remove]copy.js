@@ -1,8 +1,8 @@
 const jetpack = require('fs-jetpack');
-const browsers = !process.env.TWIST_BROWSER_BUILD
+const browsers = !process.env.__BROWSER__
   ? [ 'chrome' ]
-  : (process.env.TWIST_BROWSER_BUILD !== 'all')
-    ? [ process.env.TWIST_BROWSER_BUILD.toLowerCase() ]
+  : (process.env.__BROWSER__ !== 'all')
+    ? [ process.env.__BROWSER__.toLowerCase() ]
     : [ 'chrome', 'firefox', 'opera', 'edge', 'safari' ];
 
 const copyTask = (browser) => jetpack.copyAsync('src/extension', `build/${browser}`, {
