@@ -44,6 +44,10 @@ const flatten = (obj) => {
 
 const packageJson = require(root('package.json'));
 
+const upperCamelize = str => str.replace(/(?:^\w|[A-Z]|\b\w)/g, letter => letter.toUpperCase()).replace(/\s+/g, '');
+
+const upperCamelizedName = upperCamelize(manifest.name);
+
 module.exports = {
   root,
   ifProd,
@@ -56,4 +60,7 @@ module.exports = {
   buildPath,
   pathJoin,
   packageJson,
+  manifest,
+  upperCamelize,
+  upperCamelizedName,
 };
