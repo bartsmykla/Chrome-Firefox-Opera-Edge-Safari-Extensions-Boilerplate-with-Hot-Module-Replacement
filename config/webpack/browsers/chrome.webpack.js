@@ -5,7 +5,7 @@ const helpers = require('../../helpers');
 const CrxPlugin = require('crx-webpack-plugin');
 
 const locales = {
-  pl: require(helpers.root('locales/pl/')),
+  en: require(helpers.root('locales/en/')),
 }
 
 const keyPath = argv.key ? helpers.root(argv.key) : helpers.root('key.pem');
@@ -14,7 +14,7 @@ const manifest = require(helpers.root(`src/extension/manifest.json`));
 
 const chromePlugins = helpers.removeEmpty([
   new GenerateJsonPlugin('manifest.json', manifest),
-  locales.pl ? new GenerateJsonPlugin('_locales/pl/messages.json', locales.pl) : undefined,
+  locales.en ? new GenerateJsonPlugin('_locales/en/messages.json', locales.en) : undefined,
   helpers.ifRelease(new CrxPlugin({
     keyFile: keyPath,
     contentPath: helpers.root('build/chrome'),
