@@ -5,6 +5,8 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2565ba5ed9d842d58e49a90f50602e63)](https://www.codacy.com/app/tranotheron/Chrome-Firefox-Opera-Edge-Safari-Extensions-Boilerplate-with-Hot-Module-Replacement?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tranotheron/Chrome-Firefox-Opera-Edge-Safari-Extensions-Boilerplate-with-Hot-Module-Replacement&amp;utm_campaign=Badge_Grade)
 
 # Chrome, Firefox, Opera, Edge and Safari Extensions Boilerplate with Hot Module Replacement
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/tranotheron/Chrome-Firefox-Opera-Edge-Safari-Extensions-Boilerplate-with-Hot-Module-Replacement.svg)](https://greenkeeper.io/)
 Boilerplate code to Browser Extensions (Chrome, Firefox, Opera, Edge, Safari) with Hot Module Replacement (webpack) and React + Redux
 
 My reasons why I created this boilerplate code was to prepare reusable code for writing browser extensions, not only for Chrome, but Firefox, Opera, Edge, Safari too. I couldn't find anything which was working with **React** and **Hot Module Replacement** IN **content_scripts** (yes, it's working).
